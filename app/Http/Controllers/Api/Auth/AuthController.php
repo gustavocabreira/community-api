@@ -12,8 +12,6 @@ class AuthController extends Controller
 {
     /**
      * Register a new user.
-     * @param RegisterRequest $request
-     * @return JsonResponse
      */
     public function register(RegisterRequest $request): JsonResponse
     {
