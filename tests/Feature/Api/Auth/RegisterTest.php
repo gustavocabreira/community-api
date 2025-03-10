@@ -18,10 +18,15 @@ it('should be able to register a new user and retrieve the token', function () {
     $response
         ->assertStatus(Response::HTTP_CREATED)
         ->assertJsonStructure([
-            'token',
+            'id',
+            'name',
+            'email',
         ]);
 
-    expect($response->json('token'))->toBeString();
+    expect($response->json('id'))->toBeInt()
+        ->and($response->json('id'))->toBe(1)
+        ->and($response->json('name'))->toBe($payload['name'])
+        ->and($response->json('email'))->toBe($payload['email']);
 
     $this->assertDatabaseHas($model->getTable(), [
         'name' => $payload['name'],
