@@ -5,8 +5,7 @@ includes:
 parameters:
     paths:
         - app/Http/Controllers
-        - app/Models
     level: 10
     ignoreErrors:
-       - '#Class App\\Models\\.* uses generic trait Illuminate\\Database\\Eloquent\\Factories\\HasFactory but does not specify its types: TFactory#'
+       #- '#Class App\\Models\\.* uses generic trait Illuminate\\Database\\Eloquent\\Factories\\HasFactory but does not specify its types: TFactory#'
        - '#Cannot call method createToken#'
