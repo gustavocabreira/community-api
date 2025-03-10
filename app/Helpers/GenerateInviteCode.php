@@ -11,7 +11,7 @@ class GenerateInviteCode
     {
         $code ??= Str::random(8);
 
-        while(Invite::query()->where('code', $code)->exists()) {
+        while (Invite::query()->where('code', $code)->exists()) {
             $code = Str::random(8);
         }
 

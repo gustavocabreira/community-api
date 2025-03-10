@@ -23,16 +23,16 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    public function guilds(): HasMany
+    {
+        return $this->hasMany(Guild::class);
+    }
+
     protected function casts(): array
     {
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
-    }
-
-    public function guilds(): HasMany
-    {
-        return $this->hasMany(Guild::class);
     }
 }
