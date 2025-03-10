@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Api\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Auth\LoginRequest;
 use App\Http\Requests\Auth\RegisterRequest;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -23,5 +25,33 @@ class AuthController extends Controller
         return response()->json([
             'token' => $token->plainTextToken,
         ], Response::HTTP_CREATED);
+    }
+
+    /**
+     * Login a user.
+     */
+    public function login(LoginRequest $request): JsonResponse
+    {
+        $validated = $request->validated();
+
+        if (! Auth::attempt($validated)) {
+            return response()->json([
+                'message' => 'Invalid credentials.',
+            ], Response::HTTP_UNAUTHORIZED);
+        }
+
+        $user = Auth::user();
+
+        if (! $user) {
+            return response()->json([
+                'message' => 'Invalid credentials.',
+            ], Response::HTTP_UNAUTHORIZED);
+        }
+
+        $token = $user->createToken('auth');
+
+        return response()->json([
+            'token' => $token->plainTextToken,
+        ], Response::HTTP_OK);
     }
 }
