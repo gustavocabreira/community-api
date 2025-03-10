@@ -14,7 +14,7 @@ class StoreInviteRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'code' => ['nullable', 'string', 'max:255'],
+            'code' => ['nullable', 'string', 'max:255', 'unique:invites,code'],
             'expires_at' => ['nullable', 'date'],
         ];
     }

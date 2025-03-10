@@ -7,7 +7,6 @@ use App\Http\Requests\Guild\Invite\StoreInviteRequest;
 use App\Http\Resources\InviteResource;
 use App\Models\Guild;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 class GuildInviteController extends Controller

@@ -12,7 +12,7 @@ return new class extends Migration
         Schema::create('invites', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Guild::class)->constrained()->cascadeOnDelete();
-            $table->string('code');
+            $table->string('code')->unique();
             $table->dateTime('expires_at')->nullable();
             $table->timestamps();
         });
