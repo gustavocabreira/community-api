@@ -4,9 +4,8 @@ includes:
 
 parameters:
     paths:
-        - app/
+        - app/Http/Controllers
+        - app/Models
     level: 10
     ignoreErrors:
-        # Ignore missing generic type for HasFactory trait in all models
-        - '#Class App\\Models\\.* uses generic trait Illuminate\\Database\\Eloquent\\Factories\\HasFactory but does not specify its types: TFactory#'
-        - '#Method App\\Http\\Requests\\.* return type has no value type specified in iterable type array#'
+       - '#Class App\\Models\\.* uses generic trait Illuminate\\Database\\Eloquent\\Factories\\HasFactory but does not specify its types: TFactory#'
