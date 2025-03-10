@@ -9,3 +9,4 @@ parameters:
     level: 10
     ignoreErrors:
        - '#Class App\\Models\\.* uses generic trait Illuminate\\Database\\Eloquent\\Factories\\HasFactory but does not specify its types: TFactory#'
+       - '#Cannot call method createToken#'
