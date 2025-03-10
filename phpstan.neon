@@ -3,14 +3,9 @@ includes:
     - vendor/nesbot/carbon/extension.neon
 
 parameters:
-
     paths:
         - app/
-
     level: 10
-
-#    ignoreErrors:
-#        - '#PHPDoc tag @var#'
-#
-#    excludePaths:
-#        - ./*/*/FileToBeExcluded.php
+    ignoreErrors:
+        # Ignore missing generic type for HasFactory trait in all models
+        - '#Class App\\Models\\.* uses generic trait Illuminate\\Database\\Eloquent\\Factories\\HasFactory but does not specify its types: TFactory#'
